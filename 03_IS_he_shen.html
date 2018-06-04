@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+    
+<body>
+    <style>
+        .mainContainer {
+            border: solid 2px whitesmoke;
+            width: 500px;
+            height: auto;
+            margin: 50px;
+        }
+        
+        .titleContainer {
+            font-size: 25px;
+            font-weight: bold;
+            font-family: fantasy;
+            border: solid 2px whitesmoke;
+            width: 450px;
+            height: auto;
+            margin: 10px 10px 10px 10px;
+
+        }
+
+        .inputContainer {
+            font-size: 16px;
+            font-weight: bold;
+            font-family: fantasy;
+            border: solid 2px whitesmoke;
+            width: 450px;
+            height: auto;
+            margin: 10px 10px 10px 10px;
+        }
+        
+        .toDoContainer {
+            font-size: 15px;
+            font-family: Comic Sans MS;
+            border: solid 2px whitesmoke;
+            width: 450px;
+            height: auto;
+            margin: 10px 10px 10px 10px;
+        }
+        
+        .doneContainer {
+            color: lightgray;
+            font-size: 15px;
+            font-family: Comic Sans MS;
+            border: solid 2px whitesmoke;
+            width: 450px;
+            height: auto;
+            margin: 10px 10px 10px 10px;
+        }
+        
+        .item {
+            text-align: left;
+        }
+        
+        .strikeout {
+            text-decoration-line: line-through;
+        }
+        
+        .bin {
+            background-image: url(bin.png);
+            background-size: 17px 17px;
+            height: 19px;
+            width: 19px;
+        }
+        
+        #line {
+            border-color: whitesmoke;
+        }
+        
+        div:nth-child(even) {
+            background-color: #f2f2f2
+        }
+        
+    </style>
+    
+    
+    <h1 class="header" contenteditable="true">Interaktive Systeme - Gruppe 04 - Übung 03</h1>
+    
+    <!-- mainContainer -->    
+    <div class="mainContainer" align="center">
+        
+        <!-- titleContainer -->
+        <div class="titleContainer" align="center">
+            <div id="title"> To Do List </div></div>
+        
+        <!-- inputContainer -->
+        <div class="inputContainer" align="center">
+            <div class="input-field col s6">
+                <label for="newInput" align="left">add a new task: </label>
+                <input id="newInput" type="text" class="validate">
+                <button id="addButton">add to list</button>  
+            </div>
+        </div>
+
+        <!-- toDoContainer -->
+        <div class=" itemcontainer toDoContainer" align="center">
+            <div class="item">
+                <input id="1" type="checkbox" value="on" align="left">
+                <label for="1">test 1</label>
+                <button class="bin" style="float: right"></button></div>
+            <div class="item">
+                <input id="2" type="checkbox" value="on" align="left">
+                <label for="2">test 2</label>
+                <button class="bin" style="float: right"></button></div>
+        </div>
+        
+        <!-- Horizontal Line / Separation -->        
+        <hr id="line" width="90%" >
+
+        <!-- doneContainer -->        
+        <div class=" itemcontainer doneContainer strikeout" align="center">
+            <div class="item">
+                <input id="3" type="checkbox" value="" checked align="left">
+                <label for="3">test 3</label>
+                <button class="bin" style="float: right"></button></div>
+            <div class="item">
+                <input id="4" type="checkbox" value="" checked align="left">
+                <label for="4">test 4</label>
+                <button class="bin" style="float: right"></button></div>            
+        </div>
+                
+    </div>
+
+    
+    <script>
+        $(document).ready(function(){
+            
+            var j = 4;
+
+            // when "add" is clicked, add the text into To-Do-List
+            $('#addButton').on('click', function() {
+                var task = document.getElementById("newInput").value;
+                if (task.length === 0) {
+                    alert("Empty task! Please enter a task!")
+                    return false;
+                } else {
+                    for(let i = 0; i < 1; i++) {
+                        j++;
+                        $('<div id="container' + j + '" style="display: none" class="item">' 
+                          + '<input class="done" id="' + j + '" type="checkbox" align="left">'
+                          + '<label for="' + j + '" class="">' + task + '</label>'
+                          + '<button class="bin" style="float: right"></button></div>').appendTo('.toDoContainer');
+                        // reset the input field
+                        $('#newInput').val(""); 
+                        $('#container' + j).show('slow');
+                    }                    
+                }
+                
+                refreshListeners();
+            });
+            
+
+            var refreshListeners = function() {
+                // when "bin" is clicked, the item should be removed slowly
+                $(".item button").click(function(e){
+                    e.preventDefault();
+                    $(this).closest(".item").hide("slow");
+                    setTimeout(function() {
+                        $(this).closest(".item").remove();
+                    }, 500);
+                });
+                $(".itemDone button").click(function(e){
+                    e.preventDefault();
+                    $(this).closest(".itemDone").remove();
+                    
+                });
+                
+                //when something in "toDoContainer" is checked, move it to "doneContainer"
+                //when something in "doneContainer" is checked, move it to "toDoContainer"
+                $(".item input").click(function () {
+                    if (this.checked == true) {
+                        $(this).prop("checked", true);
+                        $(this).closest(".item").detach().appendTo('.doneContainer');
+                    } else {
+                        $(this).prop("checked", false);
+                        $(this).closest(".item").detach().appendTo('.toDoContainer');
+                    }
+                });
+            }
+            
+            refreshListeners();
+        });
+        
+    </script>
+    
+</body>
+</html>
