@@ -3,14 +3,11 @@
 <head>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Bootstrap: CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS #3498db-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -22,15 +19,17 @@
             font-family: 'Open Sans', sans-serif;
             background-color: #bedef4;
         }
+        
+        .col { display: inline-block;}
 
-        p2, p3, p4, p5{ 
-            font-weight: 200;
-            font-size: 25px;
-        }
-
-        .row {
-            padding: 20px 0;
-        }
+        .row { padding: 20px 0; }
+        
+        .imgItem {
+            margin-left: 62px;
+            margin-right: 62px;
+            margin-top: 1px;
+            margin-bottom: 5px;
+        } 
 
         .wrapper {
             width: auto;
@@ -62,6 +61,7 @@
             width: auto;
             height: 210px;
             border: solid 2px whitesmoke;
+            margin-top: 15px;
         }
         
         .titleSec {
@@ -72,16 +72,14 @@
         }
         
         .myDivider {
-            width: 30%;
+            width: 40%;
             border-bottom: 1px solid whitesmoke;
             margin-bottom: 3px;
         }
         
         /* FORM */
-        .form-wrapper .section {
+        .form-wrapper .formSection {
             padding: 0px 20px 30px 20px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
             box-sizing: border-box;
             background-color: #fff;
             opacity: 0;
@@ -103,7 +101,7 @@
             min-height: 300px
         }
 
-        .form-wrapper .section.is-active {
+        .form-wrapper .formSection.is-active {
             opacity: 1;
             -webkit-transform: scale(1, 1);
             -ms-transform: scale(1, 1);
@@ -176,63 +174,68 @@
             
             <form class="form-wrapper">
                 <!-- first form -->
-                <fieldset class="section is-active">
+                <fieldset class="formSection is-active">
                     <p2>&#35;Step 1: Select your pizza base</p2>
+                    <!-- pizza size -->
                     <div id="size" class="base">
                         <div class="titleSec"> &#9679; Select your prefered pizza size</div>
                         <div role="separator" class="myDivider"></div>
                         <section class="row">
                             <div class="col">
-                                <img width="65px" height="65px" style="margin-bottom: 25px; margin-top: 25px" src="pizza.png"/><br>
+                                <img width="65px" height="65px" class="imgItem" src="pizza.png"/><br>
                                 <input type="radio" name="pizaBase" id="r1">
                                 <label for="r1">small (23cm)<a> , 3 &euro;</a></label>
                             </div>
                             <div class="col">
-                                <img width="95px" height="95px" style="margin-bottom: 15px; margin-top: 5px" src="pizza.png"/><br>
+                                <img width="95px" height="95px" class="imgItem" src="pizza.png"/><br>
                                 <input type="radio" name="pizaBase" id="r2">
                                 <label for="r2">medium (28cm)<a> , 4.5 &euro;</a></label>
                             </div>
                             <div class="col">
-                                <img width="125px" height="125px" style="margin-bottom: 7px ; margin-top: -15px " src="pizza.png"/><br>
+                                <img width="125px" height="125px" class="imgItem" src="pizza.png"/><br>
                                 <input type="radio" name="pizaBase" id="r3">
                                 <label for="r3">large (32cm)<a> , 6 &euro;</a></label>
                             </div>
                         </section>
                     </div><br>
+                    
+                    <!-- pizza gough -->
                     <div id="dough" class="base">
                         <div class="titleSec">&#9679; Select your prefered pizza dough</div>
                         <div role="separator" class="myDivider"></div>
                         <div class="row">
                             <div class="col">
-                                <img width="110px" height="110px" style="margin-bottom: 10px; margin-top: 7px" src="weatBag.jpg"/><br>
+                                <img width="110px" height="110px" class="imgItem" src="weatBag.jpg"/><br>
                                 <input type="radio" name="pizaDough" id="r4">
                                 <label for="r4">Weat<a> , + 0.0 &euro;</a></label>
                             </div>
                             <div class="col">
-                                <img width="110px" height="110px" style="margin-bottom: 10px; margin-top: 7px" src="wheatBag2.jpg"/><br>
+                                <img width="110px" height="110px" class="imgItem" src="wheatBag2.jpg"/><br>
                                 <input type="radio" name="pizaDough" id="r5">
                                 <label for="r5">Spelt<a> , + 0.50 &euro;</a></label>
                             </div>
                         </div> 
                     </div><br>
+                    
+                    <!-- pizza sauce -->
                     <div id="sauce" class="base">
                         <div class="titleSec">&#9679; Select your prefered pizza sauce</div>
                         <div role="separator" class="myDivider"></div>
                         <div class="row">
                             <div class="col">
-                                <img width="100px" height="100px" style="margin-bottom: 5px; margin-top: 7px" src="basil.jpg"/><br>
+                                <img width="100px" height="100px" class="imgItem" src="basili.jpg"/><br>
                                 <input type="radio" name="pizaSauce" id="r6">
                                 <label for="r6">Basil<a> , + 0.0 &euro;</a></label>
                             </div>
                             <div class="col">
-                                <img width="90px" height="90px" style="margin-bottom: 13px; margin-top: 10px" src="garlic.jpg"/><br>
+                                <img width="90px" height="90px" class="imgItem" src="garlic.jpg"/><br>
                                 <input type="radio" name="pizaSauce" id="r7">
                                 <label for="r7">Garlic<a> , + 0.0 &euro;</a></label>
                             </div>
                             <div class="col">
-                                <img width="115px" height="115px" src="chili.jpg"/><br>
+                                <img width="115px" height="115px" class="imgItem" src="chili.jpg"/><br>
                                 <input type="radio" name="pizaSauce" id="r8">
-                                <label for="r8">Spicy<a> , + 0.0 &euro;</a></label>
+                                <label for="r8">Spicy<a> , + 0.50 &euro;</a></label>
                             </div>
                         </div>                    
                     </div><br>
@@ -241,7 +244,7 @@
                 </fieldset>
                 
                 <!-- second form -->
-                <fieldset class="section">
+                <fieldset class="formSection">
                     <p3>&#35;Step 2: choose your toppings</p3>
                     
                     <div class="button back">Back</div>
@@ -249,7 +252,7 @@
                 </fieldset>
                 
                 <!-- third form -->
-                <fieldset class="section">
+                <fieldset class="formSection">
                     <p4>&#35;Step 3: Overview and Delivery </p4>
                     <input type="text" name="name" id="name" placeholder="Name">
                     <input type="text" name="street" id="street" placeholder="Street">
@@ -262,7 +265,7 @@
                 </fieldset>
                 
                 <!-- fourth form -->
-                <fieldset class="section">
+                <fieldset class="formSection">
                     <p5>Done! </p5>
                     <p>Your order has now been received by the shop.</p>
                     <div class="button next">New Order</div>
@@ -278,7 +281,7 @@
             // when "next" button is clicked, move to next step
             $(".form-wrapper .next").click(function(){
                 var button = $(this);
-                var currentSection = button.parents(".section");
+                var currentSection = button.parents(".formSection");
                 var currentSectionIndex = currentSection.index();
                 var headerSection = $('.steps li').eq(currentSectionIndex);
         
@@ -291,7 +294,7 @@
                 
                 // when starting over, go to step 1 
                 if(currentSectionIndex === 3){
-                    $(document).find(".form-wrapper .section").first().addClass("is-active");
+                    $(document).find(".form-wrapper .formSection").first().addClass("is-active");
                     $(document).find(".steps li").first().addClass("is-active");
                 }
             });
@@ -299,7 +302,7 @@
             // when "back" button is clicked, move one step back
             $(".form-wrapper .back").click(function(){
                 var button = $(this);
-                var currentSection = button.parents(".section");
+                var currentSection = button.parents(".formSection");
                 var currentSectionIndex = currentSection.index();
                 var headerSection = $('.steps li').eq(currentSectionIndex);
         
