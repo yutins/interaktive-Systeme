@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <style>      
+        .dragdiv {
+            min-height: 350px;
+            width: 360px;
+            display: inline-block;
+            color: black;
+            background-color: #f1f1f1;
+            font-family: Verdana;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid gray;
+            cursor: move;
+            opacity: .89;
+            margin: 10px;
+            box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+        }
+        
+        .selectCity{
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+        
+        .imgDiv {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+    </style>
+
+    <h1>Interaktive Systeme - Gruppe 04 - Übung 07</h1>
+
+    <!-- mainContainer -->
+    <div class="mainContainer">
+        
+        <!-- first panel -->
+        <div class="dragdiv">
+            <div class="imgDiv">
+                <img id="weatherImg1" class="weatherImg" src="">
+            </div>
+            
+            <div class="col">
+                <select id="1" class="selectCity" style="color:black">
+                    <option selected="true" disabled="disabled">Choose a City</option>
+                    <option value="Konstanz">Konstanz</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Taipei">Taipei</option>
+                </select>
+            </div><hr>
+            
+            <div class="col temp">
+                <label>Temperature:</label>
+                <label id="temp1" class=""></label>
+            </div><hr>
+            
+            <div class="col wind">
+                <label>Wind:</label>
+                <label id="wind1" class=""></label>
+            </div><hr>
+            
+            <div class="col weather">
+                <label>Weather: </label>
+                <label id="weather1" class=""></label>
+            </div><hr>
+            
+            <div class="col humidity">
+                <label>Humidity:</label>
+                <label id="humidity1" class=""></label>
+            </div><hr>
+            
+            <div class="col sunrise">
+                <label>Sunrise:</label>
+                <label id="sunrise1" class=""></label>
+            </div><hr>
+            
+            <div class="col sunset">
+                <label>Sunset:</label>
+                <label id="sunset1" class=""></label>
+            </div>
+            
+        </div>
+        
+        <!-- second panel -->
+        <div class="dragdiv">
+            <div class="imgDiv">
+                <img id="weatherImg2" class="weatherImg" src="">
+            </div>
+            
+            <div class="col">
+                <select id="2" class="selectCity" style="color:black">
+                    <option selected="true" disabled="disabled">Choose a City</option>
+                    <option value="Konstanz">Konstanz</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Taipei">Taipei</option>
+                </select>
+            </div><hr>
+            
+            <div class="col temp">
+                <label>Temperature:</label>
+                <label id="temp2" class=""></label>
+            </div><hr>
+            
+            <div class="col wind">
+                <label>Wind:</label>
+                <label id="wind2" class=""></label>
+            </div><hr>
+            
+            <div class="col weather_text">
+                <label>Weather: </label>
+                <label id="weather2" class=""></label>
+            </div><hr>
+            <div class="col humidity">
+                <label>Humidity:</label>
+                <label id="humidity2" class=""></label>
+            </div><hr>
+            
+            <div class="col sunrise">
+                <label>Sunrise:</label>
+                <label id="sunrise2" class=""></label>
+            </div><hr>
+            
+            <div class="col sunset">
+                <label>Sunset:</label>
+                <label id="sunset2" class=""></label>
+            </div>
+            
+        </div>   
+        
+        <!-- third panel -->
+        <div class="dragdiv">
+            <div class="imgDiv">
+                <img id="weatherImg3" class="weatherImg" src="">
+            </div>
+            
+            <div class="col">
+                <select id="3" class="selectCity" style="color:black">
+                    <option selected="true" disabled="disabled">Choose a City</option>
+                    <option value="Konstanz">Konstanz</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Taipei">Taipei</option>
+                </select>
+            </div><hr>
+            
+            <div class="col temp">
+                <label>Temperature:</label>
+                <label id="temp3" class=""></label>
+            </div><hr>
+            
+            <div class="col wind">
+                <label>Wind:</label>
+                <label id="wind3" class=""></label>
+            </div><hr>
+            
+            <div class="col weather_text">
+                <label>Weather: </label>
+                <label id="weather3" class=""></label>
+            </div><hr>
+            <div class="col humidity">
+                <label>Humidity:</label>
+                <label id="humidity3" class=""></label>
+            </div><hr>
+            
+            <div class="col sunrise">
+                <label>Sunrise:</label>
+                <label id="sunrise3" class=""></label>
+            </div><hr>
+            
+            <div class="col sunset">
+                <label>Sunset:</label>
+                <label id="sunset3" class=""></label>
+            </div>
+        </div>
+
+        <!-- fourth panel -->
+        <div class="dragdiv">
+            <div class="imgDiv">
+                <img id="weatherImg4" class="weatherImg" src="">
+            </div>
+            
+            <div class="col">
+                <select id="4" class="selectCity" style="color:black">
+                    <option selected="true" disabled="disabled">Choose a City</option>
+                    <option value="Konstanz">Konstanz</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Taipei">Taipei</option>
+                </select>
+            </div><hr>
+            
+            <div class="col temp">
+                <label>Temperature:</label>
+                <label id="temp4" class=""></label>
+            </div><hr>
+            
+            <div class="col wind">
+                <label>Wind:</label>
+                <label id="wind4" class=""></label>
+            </div><hr>
+            
+            <div class="col weather_text">
+                <label>Weather: </label>
+                <label id="weather4" class=""></label>
+            </div><hr>
+            <div class="col humidity">
+                <label>Humidity:</label>
+                <label id="humidity4" class=""></label>
+            </div><hr>
+            
+            <div class="col sunrise">
+                <label>Sunrise:</label>
+                <label id="sunrise4" class=""></label>
+            </div><hr>
+            
+            <div class="col sunset">
+                <label>Sunset:</label>
+                <label id="sunset4" class=""></label>
+            </div>
+        </div>
+        
+        <!-- fifth panel -->
+        <div class="dragdiv">
+            <div class="imgDiv">
+                <img id="weatherImg5" class="weatherImg" src="">
+            </div>
+            
+            <div class="col">
+                <select id="5" class="selectCity" style="color:black">
+                    <option selected="true" disabled="disabled">Choose a City</option>
+                    <option value="Konstanz">Konstanz</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Taipei">Taipei</option>
+                </select>
+            </div><hr>
+            
+            <div class="col temp">
+                <label>Temperature:</label>
+                <label id="temp5" class=""></label>
+            </div><hr>
+            
+            <div class="col wind">
+                <label>Wind:</label>
+                <label id="wind5" class=""></label>
+            </div><hr>
+            
+            <div class="col weather_text">
+                <label>Weather: </label>
+                <label id="weather5" class=""></label>
+            </div><hr>
+            
+            <div class="col humidity">
+                <label>Humidity:</label>
+                <label id="humidity5" class=""></label>
+            </div><hr>
+            
+            <div class="col sunrise">
+                <label>Sunrise:</label>
+                <label id="sunrise5" class=""></label>
+            </div><hr>
+            
+            <div class="col sunset">
+                <label>Sunset:</label>
+                <label id="sunset5" class=""></label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            
+            // make panels draggable
+            $( ".dragdiv" ).draggable();
+            
+            var tempF, weather_txt, humidity, wind, sunrise, sunset, icon;
+            
+            // send request according to city selection
+            $('#1').on('change', function () {
+                var cityS = $('#1').val();
+                makeRequest(cityS, 1);
+            });
+            
+            $('#2').on('change', function () {
+                var cityS = $('#2').val();
+                makeRequest(cityS, 2);
+            });
+            
+            $('#3').on('change', function () {
+                var cityS = $('#3').val();
+                makeRequest(cityS, 3);
+            });
+            
+            $('#4').on('change', function () {
+                var cityS = $('#4').val();
+                makeRequest(cityS, 4);
+            });
+            
+            $('#5').on('change', function () {
+                var cityS = $('#5').val();
+                makeRequest(cityS, 5);
+            });
+
+            // request sending function
+            function makeRequest(cityS,id) {
+                var weatherRequest = new XMLHttpRequest();
+                weatherRequest.addEventListener("load", reqListener);
+                weatherRequest.open("GET", "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22" + "'" + cityS + "'" + "%2C%20ch%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+                weatherRequest.send();
+                
+                // set asynchrnious
+                weatherRequest.onreadystatechange = function() {
+                    if (weatherRequest.readyState == 4 && weatherRequest.status == 200) {
+                        var content = JSON.parse(this.responseText);
+                        
+                        city = content.query.results.channel.location.city;
+                        tempF = content.query.results.channel.item.condition.temp;
+                        weather_txt = content.query.results.channel.item.condition.text;
+                        humidity = content.query.results.channel.atmosphere.humidity;
+                        wind = content.query.results.channel.wind.speed + content.query.results.channel.units.speed;
+                        sunrise = content.query.results.channel.astronomy.sunrise;
+                        sunset = content.query.results.channel.astronomy.sunset;
+                        img = "http://l.yimg.com/a/i/us/we/52/" + content.query.results.channel.item.condition.code + ".gif";
+                        
+                        setValue(id);
+                    }
+                }
+            }
+
+            // show requested and parsed content in console
+            function reqListener() {
+                console.log("-----------");
+                console.log(city);
+                console.log(tempF);
+                console.log(weather_txt);
+                console.log(humidity);
+                console.log(wind);
+                console.log(sunrise);
+                console.log(sunset);
+            }   
+            
+            // set value according to request
+            function setValue(id) {
+                $('#city'+id).text(city);
+                $('#temp'+id).text(tempF + ' \u2109');
+                $('#weather'+id).text(weather_txt);
+                $('#humidity'+id).text(humidity + '%');
+                $('#wind'+id).text(wind);
+                $('#sunrise'+id).text(sunrise);
+                $('#sunset'+id).text(sunset);
+                
+                $('#weatherImg'+id).attr("src",img);
+            }
+        
+        });
+    </script>
+
+</body>
+</html>
