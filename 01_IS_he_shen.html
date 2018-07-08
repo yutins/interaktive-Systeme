@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+</head>
+    
+<body>
+    <style>
+        #assignment-1 .example {
+            background: white;
+            color: black;
+        }
+        #first_name {
+            margin: 10px 255px 10px 10px;
+        }
+        #last_name {
+            margin: 10px 10px 10px 10px;
+        }
+        #address {
+            margin: 5px 270px 10px 10px;
+        }
+        #houseNo {
+            margin: 5px 10px 10px 10px;
+        }
+        #plz {
+            margin: 5px 50px 10px 10px;
+        }
+        #city {
+            margin: 5px 50px 10px 10px;
+        }
+        #country {
+            margin: 10px 10px 10px 10px;
+        }
+        #email {
+            margin: 10px 10px 10px 10px;
+        }
+        #birthday {
+            margin: 10px 10px 10px 10px;
+        }
+        #interests {
+            margin: 10px 10px 10px 10px;
+        }
+        #gender {
+            margin: 10px 10px 10px 10px;
+        }
+        #newsletter {
+            margin: 10px 10px 10px 10px;
+        }
+    </style>
+    
+    <h1 class="header" contenteditable="true">Interaktive Systeme - Übung 01</h1>
+    <p class="intro" contenteditable="true">Gruppe 04</p>
+    
+	<form class="col s12">
+        <div class="input-field col s6">
+            <label for="first_name">First Name: </label>
+                <input id="first_name" type="text" class="validate newwindow">
+            <label for="last_name">Last Name: </label>
+                <input id="last_name" type="text" class="validate newwindow"> <br>
+            <label for="address">address: </label>
+                <input id="address" type="text" class="validate newwindow">
+            <label for="houseNo">House No.: </label>
+                <input id="houseNo" type="text" class="number newwindow" pattern="[0-9]*"><br>
+            <label for="plz">PLZ: </label>
+                <input id="plz" type="text" class="number newwindow" pattern="[0-9]*">
+            <label for="city">City: </label>
+                <input id="city" type="text" class="validate newwindow">
+            <label for="country">Country: </label>
+                <select id="country" class="initialized newwindow">
+                    <option value="" disabled="" selected="">Choose country</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Switzerland">Switzerland</option>
+                </select>
+        </div>
+
+        <div class="input-field col s6">
+            <label for="email">Email: </label>
+                <input id="email" type="email" class="validate newwindow"> <br>
+            <label for="birthday">Birthday: </label>
+                <input id="birthday" type="date" class="validate newwindow" placeholder="dd/mm/yyyy"> <br>
+            <label for="interests">Interests: </label>
+                <input id="interests" type="text" class="validate newwindow"> <br>
+        </div>    
+
+        <div id="gender">
+            <input class="newwindow" name="gender" type="radio" id="male" value="male">
+                <label for="male">Male</label>
+            <input class="newwindow" name="gender" type="radio" id="female" value="female">
+                <label for="female">Female</label>
+            <input class="newwindow" name="gender" type="radio" id="preferNot" value="preferNot">
+                <label for="preferNot">Prefer not to say</label>
+        </div>
+        <div id="newsletter">
+            <input  class="newwindow" id="newsl" type="checkbox" value="on">
+            <label for="newsl">Subscribe Newsletter? </label>
+        </div>
+
+ <button id="seeMoreButton" type="button" class="btn btn-primary btn-lg">See More</button>        
+    </form>
+    
+    <script>
+        $(document).ready(function() {
+            $('#submitform').click(function() {
+                let newWindowElements = $('.newwindow');
+                let newWindowContent = "";
+                for(let i = 0; i < newWindowElements.length; i++) {
+                    let currentElement = newWindowElements[i];
+                    
+                    if($(currentElement).attr('type') === "radio" && !$(currentElement).prop('checked')) {
+                        continue;
+                    }
+                    
+                    newWindowContent += ($(currentElement).attr('name') != undefined ? $(currentElement).attr('name') : $(currentElement).attr('id'))+": "+
+                        $(currentElement).val()+"<br />";
+                } 
+            
+                var newWindow = window.open();
+                newWindow.document.write(newWindowContent);
+            });
+        });
+    </script>
+
+</body>
+</html>

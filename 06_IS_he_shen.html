@@ -1,0 +1,453 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                font-family: 'Open Sans', sans-serif;
+                background-color: #bedef4;
+            }
+            
+            h2, h3, h4, h5 {
+                margin-top: 10px;
+                font-size: 25px;
+            }
+            
+            .mainContainer {
+                width: auto;
+                margin: 30px 0;
+            }
+            
+            /* FORM */
+            .formSection {
+                padding: 30px 20px 30px 20px;
+                box-sizing: border-box;
+                background-color: #fff;
+                text-align: center;
+                position: absolute;
+                width: 100%;
+                min-height: 500px
+            }
+            
+            /* STEPS */
+            .containerheader {
+                list-style-type: none;
+                text-align: center;
+                display: inline-block;
+                margin: 20px;
+                padding-bottom: 5px;
+            }
+            
+            .boxtitle {
+                font-size: 18px;
+                font-weight: bold;
+                font-family: 'Open Sans', sans-serif;
+                text-align: left;
+                border-bottom: 1px dashed #000;
+                margin-top: 40px;
+                margin-bottom: 30px;
+                margin-left: 10px;
+            }
+            
+            .boxentry, .iconselector {
+                display: inline-block;
+            }
+            
+            .boxentry img, .iconselector img {
+                margin-left: 62px;
+                margin-right: 62px;
+                margin-top: 1px;
+                margin-bottom: 5px;
+            }
+            
+            .summary span {
+                display: block;
+            }
+            
+            .address {
+                width: auto;
+                height: auto;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+            
+            .address .formcontainer {
+                padding: 20px 0;
+            }
+            
+            .form-wrapper input[type="text"] {
+                display: block;
+                padding: 10px;
+                margin: 10px auto;
+                background-color: #f1f1f1;
+                border: none;
+                width: 50%;
+                outline: none;
+                font-size: 14px !important;
+                font-family: 'Open Sans', sans-serif !important;
+            }
+            
+            button {
+                background-color: #3498db;
+                color: #fff;
+                cursor: pointer;
+                padding: 8px 30px;
+                margin-top: 30px;
+                font-size: 14px !important;
+                font-family: 'Open Sans', sans-serif !important;
+            }
+        
+        </style>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="mainContainer" align="center">
+
+        <div class="containerheader"></div>
+            
+        <!-- first form -->
+        <!-- pizza base -->
+        <div class="page formSection" pageid="0" hpagenum="1" pagetitle="Pizza Base">
+            <h2>&#35;Step 1: Select your pizza base</h2>
+            <!-- size -->
+            <div class="selectblock">
+                <div class="boxtitle">&#9679; select pizza size</div>
+                <div class="boxentry">
+                    <img width="65px" height="65px" src="pizza.png"><br>
+                    <input id="r1"  checked="checked" type="radio" class="pizzaselect" name="pizzasize" value="small" price="250" listname="small"/> <label for="r1">small (23cm), 3 &euro;</label>
+                </div>
+                <div class="boxentry">
+                    <img width="95px" height="95px" src="pizza.png"><br>
+                    <input type="radio" class="pizzaselect" name="pizzasize" value="medium" price="350" listname="normal" /> medium (28cm), 4.5 &euro;
+                </div>
+                <div class="boxentry">
+                    <img width="125px" height="125px" src="pizza.png"><br>
+                    <input type="radio" class="pizzaselect" name="pizzasize" value="big" price="400" listname="huge"/> large (32cm), 6 &euro;
+                </div>
+            </div>
+            
+            <!-- dough -->
+            <div class="selectblock">
+                <div class="boxtitle">&#9679; select pizza dough</div>
+                <div class="boxentry">
+                    <img width="110px" height="110px"src="weatBag.jpg"><br>
+                    <input checked="checked" type="radio" class="pizzaselect" name="pizzadough" value="wheat" price="0" listname="wheat" /> Wheat, + 0.0 &euro;
+                </div>
+                <div class="boxentry">
+                    <img width="110px" height="110px" src="wheatBag2.jpg"><br>
+                    <input type="radio" class="pizzaselect" name="pizzadough" value="spelt" price="0" listname="spelt" /> Spelt, + 0.50 &euro;
+                </div>
+            </div>
+            
+            <!-- sauce -->
+            <div class="selectblock">
+                <div class="boxtitle">&#9679; select your sauce</div>
+                <div class="boxentry">
+                    <img width="100px" height="100px" src="basili.jpg"><br>
+                    <input checked="checked" type="radio" class="pizzaselect" name="pizzasauce" value="basil" price="0" listname="basil" />Basil, + 0.0 &euro;
+                </div>
+                <div class="boxentry">
+                    <img width="90px" height="90px" src="garlic.jpg"><br>
+                    <input type="radio" class="pizzaselect" name="pizzasauce" value="garlic" price="0" listname="garlic" />Garlic, + 0.0 &euro;
+                </div>
+                <div class="boxentry">
+                    <img width="115px" height="115px" src="chili.jpg"><br>
+                    <input type="radio" class="pizzaselect" name="pizzasauce" value="spicy" price="50" listname="spicy"/>Spicy, + 0.50 &euro;
+                </div>
+            </div>
+            <button class="pageswitch" topage="1">Next</button>
+        </div>
+        
+        <!-- second form-->
+        <!-- pizza toppings -->
+        <div class="page formSection" pageid="1"  hpagenum="2" pagetitle="Toppings">
+            <h3>&#35;Step 2: choose your toppings</h3>
+            <div class="iconblock">
+                <div class="iconselector" isactive="1" listname="ham" price="75">
+                    <img width="115px" height="115px" src=""><br>
+                    <a>ham , + 0.75 &euro;</a>
+                </div>
+                <div class="iconselector" isactive="1" listname="salami" price="75">
+                    <img width="115px" height="115px" src=""><br>
+                    <a>salami , + 0.75 &euro;</a>
+                </div>
+                <div class="iconselector" isactive="1" listname="cheese" price="25">
+                    <img width="115px" height="115px" src=""><br>
+                    <a>cheese , + 0.75 &euro;</a>
+                </div>
+                <div class="iconselector" isactive="1" listname="chilis" price="75">
+                    <img width="115px" height="115px" src=""><br>
+                    <a>chili , + 0.75 &euro;</a>
+                </div>
+                <div class="iconselector" isactive="1" listname="mushroom" price="0">
+                <img width="115px" height="115px" src=""><br>
+                    <a>mushroom , + 0.75 &euro;</a>
+                </div>
+                <div class="iconselector" isactive="1" listname="onion" price="25">
+                    <img width="115px" height="115px" src=""><br>
+                    <a>onion , + 0.75 &euro;</a>
+                </div>
+                <div class="iconselector" isactive="1" listname="cats" price="125">
+                <img width="115px" height="115px" src=""><br>
+                    <a>cats , + 0.75 &euro;</a>
+                </div>
+                <div class="iconselector" isactive="1" listname="tomato" price="25">
+                <img width="115px" height="115px" src=""><br>
+                    <a>tomato , + 0.75 &euro;</a>
+                </div>
+            </div>
+            
+            <!-- list of selected toppings -->
+            <div class="boxtitle">&#9679; toppings selected:</div>
+            <div class="selectlist"></div>
+            
+            <button class="pageswitch" topage="0">Back</button>
+            <button class="pageswitch" topage="2">Next</button>
+        </div>
+        
+        <!-- third form-->
+        <!-- pizza summary -->
+        <div class="page formSection" pageid="2"  hpagenum="3" pagetitle="Summary & Delivery">
+            <h4>&#35;Step 3: Overview and Delivery </h4>
+            
+            <!-- pizza summary -->
+            <div class="boxtitle">&#9679; Summary</div>
+            <div class="summary"> </div>
+            
+            <!-- delivery address -->
+            <div class="boxtitle">&#9679; Delivery:</div>
+            <div class="address">
+                <input checked="checked" type="radio" class="addressselect" name="address" value="profile" /> address from profile
+              
+                <input type="radio" class="addressselect" name="address" value="new" /> new address
+              
+                <div class="formcontainer">
+                    <form style="display:none" class="addressform">
+                        <label for="name"></label><input type="text" name="name" placeholder="Name" />
+                        <label for="name"></label><input type="text" name="name" placeholder="Street & Number"/>
+                        <label for="name"></label><input type="text" name="name" placeholder="ZIP & City"/>
+                    </form>
+                </div>
+            </div>
+            
+            <button class="pageswitch" topage="1">Back</button>
+            <button class="pageswitch" topage="3">Order Now!</button>
+        </div>
+        
+        <!-- fourth form-->
+        <!-- cpmplete order -->
+        <div class="page formSection" pageid="3"  hpagenum="4" pagetitle="Congrats!">
+            <h5>Done! </h5>
+            <p>Your order has now been received by the shop.</p>
+          <button class="pageswitch" resetpage="resetpage" topage="0">New Order</button>
+        </div>
+       
+    </div>
+        
+    <div class="navigation"></div>
+    
+    <script type="text/javascript">
+      var pageData = {
+
+      };
+
+      var currentPage = 0;
+
+        // set initial selection status
+      var pizzaData = {
+        pizzasize: {
+          listname: null,
+          price: 0,
+        },
+        pizzadough: {
+          listname: null,
+          price: 0,
+        },
+        pizzasauce: {
+          listname: null,
+          price: 0,
+        },
+        toppings: {
+        }
+      }
+
+      $(document).ready(function() {
+        initPizzaWizad();
+      });
+
+      var formatEur = function(input) {
+        return (input/100).toFixed(2) + " Eur";
+      }
+
+      // initiate and reset
+      var initPizzaWizad = function() {
+          var that = this;
+          
+          // reset
+          that.fullReset = function() {
+              console.log("full reset");
+              pizzaData = {
+                  pizzasize: {
+                      listname: null,
+                      price: 0,
+                  },
+                  pizzadough: {
+                      listname: null,
+                      price: 0,
+                  },
+                  pizzasauce: {
+                      listname: null,
+                      price: 0,
+                  },
+                  toppings: {
+                  }
+              };
+              
+              currentPage = 0;
+              pageData = {
+              };
+              
+              $('[name=pizzasize]').first().prop('checked', true);
+              $('[name=pizzadough]').first().prop('checked', true);
+              $('[name=pizzasauce]').first().prop('checked', true);
+              
+              $('.iconselector').each(function() {
+                  $(this).attr('isactive', '1');
+              })
+              
+              that.computeSelection();
+              that.computeSummary();
+              
+              $('.selectlist').html('');
+              that.initPageData();
+          }
+          
+          //initiate the page
+          that.initPageData = function() {
+              $('.page').each(function() {
+                  var currentPage = $(this);
+                  var pageid = $(this).attr('pageid');
+                  var hPageNum = $(this).attr('hpagenum');
+                  var pageTitle = $(this).attr('pagetitle');
+
+                  pageData[pageid] = {};
+                  pageData[pageid]['hpagenum'] = hPageNum;
+                  pageData[pageid]['pagetitle'] = pageTitle;
+              });
+          }
+          
+          //
+          $('.pageswitch').on('click', function() {
+              if ($(this).attr('resetpage') == 'resetpage') {
+                  that.fullReset();
+              }
+              
+              that.pageSwitch($(this).attr('topage'));
+          });
+
+          // sequence bar
+          that.pageSwitch = function(targetPage) {
+              var currentPage = targetPage;
+              $('.page').hide();
+              $('.page[pageid=' + currentPage + ']').show();
+
+              var html = '';
+              $.each(pageData, function(index, value) {
+                  var numIndex = Number(index);
+                  var c = numIndex == currentPage ? "active" : "";
+                  
+                  html += '<span class= steps"' + c + '">&#35;' + value['hpagenum'] + ') ' + value['pagetitle'] +' </span>';
+              })
+              
+              $('.containerheader').html(html);
+          }
+          
+          // get the price
+          that.computeSelection = function() {
+              $('.pizzaselect:checked').each(function() {
+                  var name = $(this).attr('name');
+                  pizzaData[name]['listname'] = $(this).attr('listname');
+                  pizzaData[name]['price'] = $(this).attr('price');
+              })
+          }
+          
+          // show the price overview of selected items
+          that.computeSummary = function() {
+              var html = "<div>";
+              var total = Number(pizzaData["pizzasize"]["price"]) + Number(pizzaData["pizzadough"]["price"]) + Number(pizzaData["pizzasauce"]["price"]);
+              
+              html += "<span>pizza size: " + pizzaData["pizzasize"]["listname"] + " ( " + formatEur(pizzaData["pizzasize"]["price"]) + " )";
+              html += "<span>pizza dough: " + pizzaData["pizzadough"]["listname"] + " ( " + formatEur(pizzaData["pizzadough"]["price"]) + " )";
+              html += "<span>pizza sauce: " + pizzaData["pizzasauce"]["listname"] + " ( " + formatEur(pizzaData["pizzasauce"]["price"]) + " ) ";
+              
+              $.each(pizzaData.toppings, function(index, value) {
+                  if (value !== null) {
+                      html += "<span>topping: "+value["listname"]+" ("+formatEur(value["price"])+")</span>";
+                      total = total + Number(value["price"]);
+                  }
+              });
+              
+              html += "</div>";
+              html += "<span><strong> &#9679; Total: " + formatEur(total)+ " &#9679; </strong>" + " </span>"
+              
+              $('.summary').html(html);
+          }
+          
+          // when selected an item, do the "get price" procedure
+          $('.pizzaselect').on('click', function() {
+              that.computeSelection();
+          })
+          
+          // when a topping is clicked, add it to the list
+          $('.iconselector').on('click', function() {
+              var isActive = $(this).attr('isactive');
+              if (isActive == "1") {
+                  $(this).attr('isactive', "0");
+                  var name = $(this).attr('listname');
+                  var price = $(this).attr('price');
+                  
+                  pizzaData.toppings[name] = {};
+                  pizzaData.toppings[name]["listname"] = name;
+                  pizzaData.toppings[name]["price"] = price;
+              } else {
+                  $(this).attr('isactive', "1");
+                  var name = $(this).attr('listname');
+                  pizzaData.toppings[name] = null;
+              }
+              
+              var html = "<ul>";
+              $.each(pizzaData.toppings, function(index, value) {
+                  if (value !== null) {
+                      html += "<li>"+value["listname"]+"</li>";
+                  }
+              });
+              html += "</ul>";
+              $('.selectlist').html(html);
+          });
+          
+          //
+          that.computeSelection();
+          that.initPageData();
+          that.pageSwitch(0);
+
+          // when new address input is requestes, show the form
+          $('.addressselect').on("click", function() {
+              if($('.addressselect:checked').first().attr('value') == "profile") {
+                  $('.addressform').hide();
+            } else {
+                $('.addressform').show();
+            }
+        });
+          
+          // comute the summary whenever there is a click
+          $(document).on("click", function() {
+              that.computeSummary();
+          })
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+    
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .mainContainer {
+            border: solid 2px whitesmoke;
+            width: 1180px;
+            height: auto;
+            margin: 50px;
+        }
+        
+        .photoContainer {
+            content: "";
+            display: table;
+            clear: both;            
+        }
+        
+        .seeMoreContainer {
+            width: 1180px;
+            height: auto;
+        }
+        
+        .column {
+            display: inline-block;
+            width: 30%;
+            padding: 5px;
+        }
+        
+        #seeMoreButton {
+            width: auto;
+        }
+        
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 900px) {
+            .column {
+                width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+        
+    </style>
+    
+    <h1 class="header">Interaktive Systeme - Gruppe 04 - Übung 02</h1>
+    
+    <!-- mainContainer -->    
+    <div class="mainContainer" align="center">
+        
+        <!-- photoContainer -->    
+        <div class="photoContainer" align="center">
+            <div class="column">
+                <img width="350" height="250" src="https://cataas.com/cat?1"></div>
+            <div class="column">
+                <img width="350" height="250" src="https://cataas.com/cat?2"></div>
+            <div class="column">
+                <img width="350" height="250" src="https://cataas.com/cat?3"></div>
+            <div class="column">
+                <img width="350" height="250" src="https://cataas.com/cat?4"></div>
+            <div class="column">
+                <img width="350" height="250" src="https://cataas.com/cat?5"></div>
+            <div class="column">
+                <img width="350" height="250" src="https://cataas.com/cat?6"></div>
+        </div><br>
+        
+        <!-- seeMoreContainer -->    
+        <div class="seeMoreContainer" align="center">
+            <button id="seeMoreButton">See More</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            //load images
+            var images = ["https://cataas.com/cat?1","https://cataas.com/cat?2","https://cataas.com/cat?3","https://cataas.com/cat?4","https://cataas.com/cat?5","https://cataas.com/cat?6weferwf4w"];
+
+            $('#seeMoreButton').on('click', function() {
+                var $this = $(this);
+                window.scrollTo(0,document.body.scrollHeight);
+                this.innerHTML = "Loading..."
+                setTimeout(function() {
+                    $this.html('See more');
+                }, 1000);
+                addPhotos ();
+    
+            });
+            
+            function addPhotos () {
+                //generate random images
+                for(let i = 0; i <= 2; i++) {
+                    let rndVal = Math.random().toString(36).substr(2, 9);
+                                
+                    //make each randomly generated image a div and append it to photoContainer
+                    $('<div class= "column">' + '<img width="350" height="250" src="https://cataas.com/cat?' + rndVal + '">' + '</div>').appendTo('.photoContainer');
+                    window.scrollTo(0,document.body.scrollHeight);
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
