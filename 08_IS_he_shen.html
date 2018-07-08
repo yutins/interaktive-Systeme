@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <style>
+
+        h2 {
+            font-family: sans-serif;
+            font-size: 20px;
+            text-align: center;
+            border-bottom: 2px solid black;
+            width: 150px;
+            padding: 15px;
+        }
+
+        .naviBar {
+            overflow: hidden;
+            background-color: lightgrey;
+            text-align: center;
+        }
+
+        /* header: logo & navigation bar #333*/
+        .naviBar ul {
+            font-family: sans-serif;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: -webkit-sticky;
+            display: flex;
+        }
+
+        .naviBar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            width: 100px;
+        }
+
+        .naviBar a:hover {
+            background-color: #111;
+        }
+
+        /*#4CAF50*/
+        .active {
+            background-color: black;
+        }
+
+        .naviBar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        .naviBar .icon {
+            display: none;
+            text-align: center;
+        }
+
+        .content {
+            padding: 16px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        
+        .sticky + .content {
+            padding-top: 60px;
+        }
+
+        /* Section 1: project */
+        .projectPanel {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .projectPanel img {
+            width: 300px;
+            height: 300px;
+            border: 3px solid #f1f1f1;
+            cursor: pointer;
+        }
+
+        .project {
+            text-align: center;
+            display: inline-block;
+            padding: 15px;
+        }
+
+        /* Section 2: About Us */
+        .aboutUs {
+            text-align: center;
+        }
+
+        .about {
+            font-family: sans-serif;
+            width: 300px;
+            display: inline-block;
+            padding: 20px;
+        }
+
+        /* Section 3: social media & contact form */
+        .conMed {
+            text-align: center;
+        }
+
+        .contactForm {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        input[type=search], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=search]::-webkit-search-cancel-button {
+            -webkit-appearance: searchfield-cancel-button;
+        }
+
+        .socialMedia {
+            font-family: sans-serif;
+            text-align: center;
+            display: inline-block;
+            padding: 50px;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-instagram {
+            background-color: hotpink;
+            color: white;
+        }
+
+        @media screen and (max-width: 510px) {
+            .naviBar a:not(:first-child) {
+                display: none;
+            }
+            .naviBar a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 510px) {
+            .naviBar.responsive {
+                position: relative;
+                float: none !important;
+            }
+            .naviBar.responsive .icon {
+                position: absolute;
+                text-align: right;
+                right: 0;
+                top: 0;
+                width: 70px;
+            }
+            .naviBar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+                float: none
+            }
+            .naviBar ul {
+              display: block;
+            }
+            .item a {
+              display: block !important;
+              width: 100% !important;
+            }
+            .naviBar ul li a {
+              display: block !important;
+              width: 100% !important;
+            }
+        }
+
+    </style>
+
+    <h1>Interaktive Systeme - Gruppe 04 - Übung 08</h1>
+
+    <!-- mainContainer -->
+    <div class="mainContainer">
+
+        <!-- header: logo and navigation bar -->
+        <div class="header">
+
+            <!-- navigation bar -->
+            <div id="navigation" class="naviBar">
+                <ul>
+                    <li href="javascript:void(0)" class="item"><a class="nav active" href="#">Home</a></li>
+                    <li href="javascript:void(0)" class="item"><a id='aproject' class="nav" href="#project">Project</a></li>
+                    <li href="javascript:void(0)" class="item"><a id='aaboutus' class="nav" href="#aboutus">About Us</a></li>
+                    <li href="javascript:void(0)" class="item"><a id='acontact' class="nav" href="#contact">Contact</a></li>
+
+                    <!-- hamburger menu -->
+                    <li><a href="javascript:void(0);" class="nav icon" onclick="hamburger()"><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </div>
+
+             <!-- logo -->
+            <div class="logo" style="height: 400px;">
+                <a href="#home"><img src = ""></a>
+                <div>Interaktive Systeme</div>
+                <a>Gruppe 4 </a>
+                <a>project presentation</a>
+            </div>
+
+        </div>
+
+        <!-- main content panel -->
+        <div class="content">
+
+            <!-- first section: project presentation -->
+            <h2 class="breakpoint" id="project">Project</h2>
+            <div id="section1" class="projectPanel">
+                <div id="project1" class="project">
+                    <img src="dataInput.png"><br>
+                    <a>Data input</a>
+                </div>
+
+                <div id="project2" class="project">
+                    <img src="endlessGrid.png"><br>
+                    <a>Endless Grid</a>
+                </div>
+
+                <div id="project3" class="project">
+                    <img src="todoList.png"><br>
+                    <a>To-Do List</a>
+                </div>
+
+                <div id="project4" class="project">
+                    <img src="photoGalary.png"><br>
+                    <a>Photo Galary</a>
+                </div>
+
+                <div id="project5" class="project">
+                    <img src="pizzaOrdering.png"><br>
+                    <a>Pizza ordering</a>
+                </div>
+
+                <div id="project6" class="project">
+                    <img src="weatherData.png"><br>
+                    <a>Weater Data</a>
+                </div>
+
+            </div>
+
+            <!-- second section: our introduction -->
+            <div id="section2" class="aboutUs">
+                <h2  class="breakpoint" id="aboutus">About Us</h2>
+
+                <div  class="about"><a style="border-bottom: 3px solid #f1f1f1">&#9679; Who we are &#9679;</a>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
+                </div>
+
+                <div id="what" class="about"><a style="border-bottom: 3px solid #f1f1f1">&#9679; What we offer &#9679;</a>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
+                </div>
+                
+                <div id="phi" class="about"><a style="border-bottom: 3px solid #f1f1f1">&#9679; Our philosophy &#9679;</a>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
+                </div>
+            </div>
+
+            <!-- third section: contact & social media -->
+            <div id="section3" class="conMed">
+                <h2 class="breakpoint" id="contact">Contact</h2>
+
+                <!-- contact form -->
+                <form class="contactForm">
+                    <label for="name"></label>
+                    <input type="search" id="name" name="name" placeholder="your name...">
+
+                    <label for="lname"></label>
+                    <input type="search" id="email" name="email" placeholder="e-mail address...">
+
+                    <label for="subject"></label>
+                    <input type="search" id="subject" name="subject" placeholder="Write something..." style="height:100px">
+
+                    <input type="submit" value="Submit">
+                </form>
+
+                <!-- social media -->
+                <div id="media" class="socialMedia">
+                    <div>Follow us on: </div>
+                    <a href="#media" class="fa fa-facebook"></a>
+                    <a href="#media" class="fa fa-twitter"></a>
+                    <a href="#media" class="fa fa-instagram"></a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+
+        // hamburger menu
+        function hamburger() {
+            $('.item').toggle();
+        }
+
+        var breakpoints = {};
+
+        $(document).ready(function(){
+
+            $('.breakpoint').each(function() {
+                breakpoints[this.id] = $(this).offset().top
+            });
+
+            // navigation bar
+            var header = document.getElementById("navigation");
+            var naviElement = header.getElementsByClassName("nav");
+            for (var i = 0; i < naviElement.length; i++) {
+                naviElement[i].addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
+            }
+
+            // create sticky navigation bar
+            window.onscroll = function() {
+                stickyBar();    // call stickyBar function
+            };
+
+            $(window).on('scroll',function() {
+              var cleanPosition = $(window).scrollTop()-100;
+              $.each(breakpoints, function(key, value) {
+                  if (value > cleanPosition) {
+                    console.log("HIT"+key);
+                    console.log('#a'+value);
+                    $('#navigation a').removeClass('active');
+                    $('#a'+key).addClass('active');
+                    return false;
+                  }
+              });
+            })
+
+            var navbar = document.getElementById("navigation");
+            var sticky = navbar.offsetTop;
+
+            function stickyBar() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
